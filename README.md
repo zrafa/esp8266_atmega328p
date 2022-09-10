@@ -2,6 +2,8 @@
 
 C example for controlling esp8266 via AT commands using arduino atmega328p avr - IOT stable connection
 
+[![avr_and_esp8266](/pic.jpg)]
+
 This repo aims to provide a stable wifi web server tiny C example code 
 (simple IOT: internet of things), using an Arduino UNO (or similar)
 and an esp8266 as a blackbox. The code is useful as starting point 
