@@ -13,7 +13,7 @@ I decided to put this code here after several days with unstable
 wifi / web server / html code from several sources. The esp8266 is great
 (cheap, tiny, low power, wifi), but it is a "bit fragile" if you
 do not use the proper setup. Moreover, I have not found 
-a stable example yet like this (baremetal C code for avr), so I wanted 
+an example like this (baremetal C code for avr), so I wanted 
 to share it and lets it available for others (and for own projects coming :-)
 (sometimes you found a solution, and after some weeks or days, you do not
 remember it anymore :( , so better if we put it on some public place for easy
