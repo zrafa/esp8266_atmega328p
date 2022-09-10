@@ -28,7 +28,7 @@ is by default at 115200, you can use the below command:
 
 AT+UART_DEF=9600,8,1,0,0
 
-That will change the configuration permanentely (after off-on you will
+That will change the configuration on flash (after off-on you will
 have 9600bpp as speed).
 
 - You need to send \r \n after every AT command sent to esp8266.
