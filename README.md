@@ -41,9 +41,9 @@ i/o pins are 5V tolerant!! (so you can connect them to arduino directly).
 Compiling and flashing
 ======================
 
-make clean
-make
-make flash 
+make clean; 
+make; 
+make flash  
 
 (If flash fails, then change the speed and/or the device for the avrdude 
 command.)
@@ -52,7 +52,7 @@ command.)
 Usage
 =====
 
-Join your laptop/phone to "AVR_ESP_demo" wifi.
+Join your laptop/phone to "AVR_wifi_ESP" wifi.
 
 Then, you can point chrome or firefox (or whatever) to http://192.168.4.1
 (192.168.4.1 is the IP address of esp8266). The request from chrome/firefox
@@ -62,4 +62,4 @@ The setup is multiple connections (4 max.). This example will reply to
 all of them. The web server listens on port 80.
 
 
-Read the .c c code for further details.
+Read the .c code for further details.
