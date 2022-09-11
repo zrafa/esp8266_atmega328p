@@ -39,6 +39,7 @@ have 9600bpp as speed).
 i/o pins are 5V tolerant!! (so you can connect them to arduino directly).
 (the esp's company owner published this note).
 
+- The esp8266 was powered using the 3.3v from cp2102 usb to ttl.
 
 Compiling and flashing
 ======================
@@ -64,4 +65,4 @@ The setup is multiple connections (4 max.). This example will reply to
 all of them. The web server listens on port 80.
 
 
-Read the .c code for further details.
+Read the few .c code files for further details.
