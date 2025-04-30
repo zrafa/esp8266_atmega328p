@@ -22,6 +22,8 @@ reuse).
 Some important notes about esp8266
 ==================================
 
+- IMPORTANT!!! : You need to send \r \n after every AT command sent to esp8266.
+
 - The ultra cheap tiny esp8266 is it: https://www.sparkfun.com/products/17146
 
 - For solid wifi functionality you MUST change the speed to 9600,8,1
@@ -33,7 +35,7 @@ AT+UART_DEF=9600,8,1,0,0
 That will change the configuration on flash (after off-on you will
 have 9600bpp as speed).
 
-- You need to send \r \n after every AT command sent to esp8266.
+- IMPORTANT!!! : You need to send \r \n after every AT command sent to esp8266.
 
 - The esp8266 just works on 3.3V!. BUT IMPORTANT AND USEFUL: the rx/tx
 i/o pins are 5V tolerant!! (so you can connect them to arduino directly).
