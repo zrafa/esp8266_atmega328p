@@ -6,30 +6,10 @@
 
 #include <string.h>
 #include <util/delay.h>
-#include <avr/pgmspace.h>
-
 #include "avr_serial.h"
 
 int 	sprintf (char *__s, const char *__fmt,...);
 
-/* Commands in PROGMEM Flash */
-const __flash char mm1[] = "AT";
-const __flash char mm2[] = "AT+RST";
-const __flash char mm3[] = "AT+CWMODE=3";
-const __flash char mm4[] = "AT+CWSAP=\"AVR_wifi_ESP\",,1,0";
-const __flash char mm5[] = "AT+CIPMUX=1";		/* 0 : una conexion;    1 : hasta 4 conexiones */ 
-const __flash char mm6[] = "AT+CIPSERVER=1,80";
-/*
-const __flash char mm7[] = "AT+CIPSEND=%i,1";  /* en conexion 0 enviaremos 25 bytes */
-/*
-const __flash char mm8[] = "<html><head></head><body>";
-const __flash char mm9[] = "AT+CIPSEND=%i,19";
-const __flash char mm10[] = "<h1>Web demo  </h1>";
-const __flash char mm11[] = "AT+CIPSEND=%i,45";
-const __flash char mm12[] = "AT+CIPSEND=%i,14";
-const __flash char mm13[] = "</body></html>";
-const __flash char mm14[] = "AT+CIPCLOSE=%i";
-*/
 
 int wait_connection() {
 	int found = 0;
@@ -66,47 +46,51 @@ void cipsend_one_byte(int n, char c)
 
 	sprintf(dest, at_un_byte, n);
 	serial_put_str(dest);
-	_delay_ms(400);
+	_delay_ms(50);
 	serial_put_str(un_byte);
-	_delay_ms(400);
+	_delay_ms(50);
 }
 
-void wifi_web_server() {
-
-	char msg[46], msg2[20];
-	int n, i;
-
+void wifi_init_server()
+{
 	// AT y reset
-	serial_put_str2(mm1);
+	serial_put_str("AT");
 	_delay_ms(400);
-	serial_put_str2(mm2);
+	serial_put_str("AT+RST");
 	_delay_ms(400);
 
 	// access point
-	serial_put_str2(mm3);
+	serial_put_str("AT+CWMODE=3");
 	_delay_ms(400);
 
 	// canal 1, access point ESP, sin clave (el cero) 
-	serial_put_str2(mm4);
+	serial_put_str("AT+CWSAP=\"AVR_wifi_ESP\",,1,0");
 	_delay_ms(400);
 
 	// mult conexiones
-	serial_put_str2(mm5);
+	serial_put_str("AT+CIPMUX=1");	/* 0: 1 conexion; 1: max 4 conexiones */
 	_delay_ms(400);
 
 	// servidor web
-	serial_put_str2(mm6);
+	serial_put_str("AT+CIPSERVER=1,80");
 	_delay_ms(400);
+}
+
+void wifi_control() 
+{
+	int n, i;
+	char c;
+
+	wifi_init_server();
 
 	n = wait_connection();
 	while(1) {
 
 		cipsend_one_byte(n, 'A');
-		_delay_ms(400);
 		cipsend_one_byte(n, 'B');
-		_delay_ms(400);
-	}
 
+
+	}
 			      
 }
 

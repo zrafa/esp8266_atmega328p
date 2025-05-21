@@ -12,6 +12,7 @@
 
 void serial_init();
 void serial_put_char(char);
+int serial_new_data(void);
 char serial_get_char(void);
 void serial_put_str(char *);
 void serial_put_str2(const __flash char m[]);

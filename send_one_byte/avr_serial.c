@@ -77,6 +77,12 @@ void serial_put_char(char c)
         puerto_serial->data_es = c;
 }
 
+int serial_new_data(void)
+{
+        if ((puerto_serial->status_control_a) & (READY_TO_READ))
+		return 1;
+	return 0;
+}
 
 char serial_get_char(void)
 {

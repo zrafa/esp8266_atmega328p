@@ -10,14 +10,14 @@
 
 #include "avr_serial.h"
 
-extern void wifi_web_server();
+extern void wifi_control();
 
 void main() {
 
 	serial_init(9600);
 	_delay_ms(2000);
 
-	wifi_web_server();
+	wifi_control();
 	
 	/* the execution continues in wifi.c, not here */
 	for(;;);
