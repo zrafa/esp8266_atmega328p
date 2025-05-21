@@ -9,16 +9,24 @@
 #include <avr/interrupt.h>
 
 #include "avr_serial.h"
-
-extern void wifi_control();
+#include "wifi.h"
 
 void main() {
+
+	int n;
 
 	serial_init(9600);
 	_delay_ms(2000);
 
-	wifi_control();
-	
-	/* the execution continues in wifi.c, not here */
-	for(;;);
+	wifi_init_server();
+
+	n = wait_connection();
+	while(1) {
+
+		cipsend_one_byte(n, 'A');
+		cipsend_one_byte(n, 'B');
+
+
+	}
 }
+

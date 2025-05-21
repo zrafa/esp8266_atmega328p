@@ -46,9 +46,9 @@ void cipsend_one_byte(int n, char c)
 
 	sprintf(dest, at_un_byte, n);
 	serial_put_str(dest);
-	_delay_ms(50);
+	_delay_ms(40);
 	serial_put_str(un_byte);
-	_delay_ms(50);
+	_delay_ms(40);
 }
 
 void wifi_init_server()
