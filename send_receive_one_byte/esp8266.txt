@@ -1,0 +1,24 @@
+
+AT
+# access point
+AT+CWMODE=3
+# el cero dice que la red ESP es sin clave
+AT+CWSAP="ESP",,1,0
+
+192.168.4.1 ip del esp
+
+# mult conexiones
+AT+CIPMUX=1
+
+# servidor web
+AT+CIPSERVER=1,80
+
+# cuando llega una conexion hay un GET
+
+# le decimos al esp8266 que vamos a responder con 26 bytes
+AT+CIPSEND=0,26
+
+#respuesta
+<h1>ESP8266 Webserver</h1>
+
+# doc http://www.martyncurrey.com/arduino-esp8266-web-server/
